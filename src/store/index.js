@@ -188,7 +188,6 @@ export default createStore({
     async fetchProduct(context, payload) {
       try{
         let {result} = (await axios.get(`${lifeURL}products/${payload.id}`)).data
-        console.log(result);
         if(result) {
           context.commit('setProduct', result)
         }else {

@@ -20,7 +20,7 @@
             :key="product.products_id"
           >
             <template #cardImgTop>
-              <img class=" m-4" style="height: 200px;" :src="product.prodUrl" :alt="product.prodName" />
+              <img class="card-img-top" style="height: 200px;" :src="product.prodUrl" :alt="product.prodName" />
             </template>
             <template #cardHeader>
               <h4 class="card-title">{{ product.prodName }}</h4>
