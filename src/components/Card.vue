@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card" style="width: 18rem;">
         <div class="card-img-top">
             <!-- put image in the products section -->
        <slot name="cardImgTop"></slot>
