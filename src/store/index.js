@@ -5,7 +5,7 @@ import { useCookies } from 'vue3-cookies'
 const {cookies} = useCookies()
 import router from '@/router'
 import AuthenticateUser from '@/service/AuthenticateUser'
-const lifeURL = 'https://lifechoicces.onrender.com/'
+const lifeURL = 'https://coffee-shop-eomp.onrender.com/'
 
 export default createStore({
   state: {
@@ -188,6 +188,7 @@ export default createStore({
     async fetchProduct(context, payload) {
       try{
         let {result} = (await axios.get(`${lifeURL}products/${payload.id}`)).data
+        console.log(result);
         if(result) {
           context.commit('setProduct', result)
         }else {

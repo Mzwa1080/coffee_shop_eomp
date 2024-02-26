@@ -36,7 +36,7 @@
         </p>
       </div>
 
-      <div class="row d-flex justify-content-evenly">
+      <div class="row d-flex justify-content-center">
         <h1 class="mt-4 ">Meet the team</h1>
   
         
@@ -51,7 +51,7 @@
                   </template>
 
                   <template #cardBody>
-                      <p class="card-text">The founder</p>
+                      <p class="card-text">Founder</p>
                   </template>
   
         </Card>
@@ -63,11 +63,11 @@
                 </template>
 
                   <template #cardHeader>
-                      <h4 class="card-title">Haanim</h4>
+                      <h4 class="card-title">Mzwamadoda Louw</h4>
                   </template>
 
                   <template #cardBody>
-                      <p class="card-text">The founder</p>
+                      <p class="card-text">Founder</p>
                   </template>
   
         </Card>
