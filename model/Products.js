@@ -15,8 +15,8 @@
     fetchProduct(req,res){
         const qry =`
         SELECT prodID,prodName,prodQuantity, productAmount,userID
-        FROM products WHERE prodID = ${req.params.id}
-        `
+        FROM products WHERE prodID = ${req.params.id};`
+        
         db.query(qry, (err, result) => {
             if (err) throw err;
             res.json({
