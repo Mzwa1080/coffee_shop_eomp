@@ -64,7 +64,7 @@
               <td>{{ product.prodQuantity }}</td>
               <td>
                 <button type="button" class="btn btn-success">edit</button>
-                <button type="button" class="btn btn-danger">delete</button>
+                <button type="button" class="btn btn-danger" >delete</button>
 
               </td>
             </tr>
@@ -73,8 +73,6 @@
         </table>
 
         </div>
-        
-
     </div>
   </div>
 </template>
@@ -98,7 +96,7 @@ export default {
     this.$store.dispatch('fetchProducts')
   },
 
-  
+
   
 
 };

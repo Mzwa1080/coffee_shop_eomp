@@ -65,6 +65,7 @@
                   <th scope="col">Age</th>
                   <th scope="col">Email</th>
                   <th scope="col">Role</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody v-for="userss in users" :key="userss.prodID">
@@ -77,7 +78,11 @@
                   <td>{{ userss.userAge }}</td>
                   <td>{{ userss.emailAdd }}</td>
                   <td>{{ userss.userRole }}</td>
+                  <td>
+                <button type="button" class="btn btn-success">edit</button>
+                <button type="button" class="btn btn-danger" onclick="deleteUser">delete</button>
 
+              </td>
                 </tr>
               </tbody>
             </table>
@@ -105,10 +110,16 @@ export default {
     users() {
       return this.$store.state.users;
     },
+    deleteUser(){
+        return this.$store.state.user;
+    }
+
   },
+
+
   mounted() {
-    this.$store.dispatch("fetchUsers");
-  },
+    this.$store.dispatch("fetchUsers"),
+    this.$store.dispatch('fetchProduct', this.$route.params) },
 };
 </script>
 

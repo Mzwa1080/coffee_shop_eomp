@@ -27,6 +27,7 @@ export default createStore({
       state.products = value
     },
     setProduct(state, value) {
+      console.log(value);
       state.product = value
     },
   },
@@ -187,7 +188,8 @@ export default createStore({
     },
     async fetchProduct(context, payload) {
       try{
-        let {result} = (await axios.get(`${lifeURL}products/${payload.id}`)).data
+        let {result} = (await axios.get(`${lifeURL}product/${payload.id}`)).data
+        // console.log(result);
         if(result) {
           context.commit('setProduct', result)
         }else {
@@ -195,7 +197,7 @@ export default createStore({
             title: 'Retrieving a single product',
             text: 'Product was not found',
             icon: "info",
-            timer: 2000
+            timer: 20000
           }) 
         }
       }catch(e) {

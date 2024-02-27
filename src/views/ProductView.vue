@@ -29,7 +29,9 @@ export default {
     },
     mounted() {
         this.$store.dispatch('fetchProduct', this.$route.params)
-    }
+    },
+
+
 }
 </script>
 
