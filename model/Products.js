@@ -2,7 +2,7 @@
  class Products{
     fetchProducts(req,res){
         const qry =`
-        SELECT prodID,prodName,prodQuantity, productAmount,userID
+        SELECT prodID,prodName,prodQuantity, productAmount, description, prodUrl
         FROM products;  `
         db.query(qry, (err, results) => {
             if (err) throw err;
@@ -16,7 +16,6 @@
         const qry =`
         SELECT prodID,prodName,prodQuantity, productAmount,userID
         FROM products WHERE prodID = ${req.params.id};`
-        
         db.query(qry, (err, result) => {
             if (err) throw err;
             res.json({
@@ -52,35 +51,29 @@
       })
   }
   deleteProduct(req,res){
-    const qry=`DELETE FROM products WHERE prodID=${req.params.id} ;`
-    // const user = req.body
-  
-    db.query(qry, (err)=>{
-  
-      if(err) throw err
-      res.json({
-        status: res.statusCode,
-        msg:'Product is deleted!'
-      })
-  
+    const qry=`DELETE FROM products WHERE prodID= ? ;`
+    db.query(qry, [req.params.id], (err)=>{
+        if(err) throw err
+        res.json({
+            status: res.statusCode,
+            msg:'Product is deleted!'
+        })
     })
-  }
-  async updateProduct(req,res){
-    const qry=`
-    UPDATE products 
-    SET ?
-    WHERE prodID = ${req.params.id};`
-  
-    db.query(qry, [req.body], (err)=>{
+}
+async updateProduct(req,res){
+  const qry=`
+  UPDATE products 
+  SET ?
+  WHERE prodID = ?;`
+  db.query(qry, [req.body, req.params.id], (err)=>{
       if(err) throw err
       
       res.json({
-        status: res.statusCode,
-        msg:'Product is updated!'
+          status: res.statusCode,
+          msg:'Product is updated!'
       })
-  
-    })
-  }
+  })
+}
 
  
  }
