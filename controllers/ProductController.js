@@ -18,7 +18,7 @@ productRouter.get('/', (req, res) => {
 // Fetch product by ID
 productRouter.get('/:id', (req, res) => {
     try {
-        products.fetchProduct(req.params.id, res);
+        products.fetchProduct(req, res);
     } catch (e) {
         res.json({
             status: res.statusCode,
@@ -40,7 +40,7 @@ productRouter.post('/', (req, res) => {
 // Delete product by ID
 productRouter.delete('/:id', (req, res) => {
     try {
-        products.deleteProduct(req.params.id, res);
+        products.deleteProduct(req, res);
     } catch (e) {
         res.json({
             status: res.statusCode,
@@ -51,7 +51,7 @@ productRouter.delete('/:id', (req, res) => {
 // Update product by ID
 productRouter.patch('/:id', (req, res) => {
     try {
-        products.updateProduct(req.params.id, req.body, res);
+        products.updateProduct(req, req.body, res);
     } catch (e) {
         res.json({
             status: res.statusCode,
