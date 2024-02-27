@@ -35,14 +35,14 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div   class="collapse navbar-collapse justify-content-center" id="navbarNav"  >
-              <ul class="navbar-nav">
+              <ul class="navbar-nav bg-light collor">
                 <li class="nav-item">
-                  <RouterLink  to="/admin"   class="nav-link collor"  aria-current="page"
+                  <RouterLink  to="/admin"   class="nav-link "  aria-current="page"
                     >Products</RouterLink  >
                 </li>
 
                 <li class="nav-item">
-                  <RouterLink to="/users" class="nav-link collor"
+                  <RouterLink to="/users" class="nav-link "
                     >Users</RouterLink
                   >
                 </li>
@@ -55,7 +55,7 @@
         <!-- when selecting a products, you must router to a product page a single page of a selected product -->
 
         <div class="row d-flex justify-content-center" v-if="users">
-          <div class="container">
+          <div class="container table-responsive py-5">
             <table class="table table-hover" >
               <thead>
                 <tr>
@@ -116,13 +116,16 @@ export default {
 .search {
   background-color: #f7e1bc;
   border: 1px solid #f7e1bc;
-  width: 10rem;
+  width: 8rem;
   border-radius: 0.5em;
 }
 .sort {
-  width: 10rem;
+  width: 8rem;
   background-color: #f7e1bc;
   border: 1px solid black;
+}
+.collor{
+    border-radius: 2rem;
 }
 .background {
   background-image: url('https://i.ibb.co/ncqwf8z/nathan-dumlao-Y3-Aqmbmt-LQI-unsplash.jpg" alt="nathan-dumlao-Y3-Aqmbmt-LQI-unsplash');

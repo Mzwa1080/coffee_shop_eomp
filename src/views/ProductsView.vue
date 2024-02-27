@@ -83,13 +83,14 @@ export default {
 .search {
   background-color: #f7e1bc;
   border: 1px solid #f7e1bc;
-  width: 10rem;
+  width: 8rem;
   border-radius: 0.5em;
+  text-align: center;
 }
 .sort {
-  width: 10rem;
+  width: 8rem;
   background-color: #f7e1bc;
-  border: 1px solid black;
+  border: 1px solid #f7e1bc;
 }
 .background {
   background-image: url('https://i.ibb.co/ncqwf8z/nathan-dumlao-Y3-Aqmbmt-LQI-unsplash.jpg" alt="nathan-dumlao-Y3-Aqmbmt-LQI-unsplash');

@@ -12,23 +12,25 @@
 
         </div>
         <div class="col">
-          <input type="text" style="height: 40px;" placeholder="search " class="search  " />
+          <button type="button" class="btn addItems">
+            <span class="material-symbols-outlined">add</span>
+          </button>
 
         </div>
 
-<nav class="navbar d-flex background-img navbar-expand-lg ">
-  <div class="container-fluid justify-content-center">
+<nav class="navbar d-flex background-img bg navbar-expand-lg ">
+  <div class="container-fluid  justify-content-center">
 
     <button class="navbar-toggler collor" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon collor"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav bg-light collor">
         <li class="nav-item">
-          <RouterLink to="#" class="nav-link collor" aria-current="page" >Products</RouterLink>
+          <RouterLink to="#" class="  nav-link " aria-current="page" >Products</RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink to="/users" class="nav-link collor" >Users</RouterLink>
+          <RouterLink to="/users" class="  nav-link " >Users</RouterLink>
         </li>
         
       </ul>
@@ -56,10 +58,15 @@
           <tbody v-for="product in products" :key="product.prodID">
             <tr>
               <th scope="row">{{product.prodID}}</th>
-              <td><img :src="product.prodUrl" width="50px" height="50px" :alt="product.prodUrl"></td>
+              <td><img :src="product.prodUrl" width="80px" height="50px" :alt="product.prodUrl"></td>
               <td>{{product.prodName}}</td>
               <td>R{{ product.productAmount }}</td>
               <td>{{ product.prodQuantity }}</td>
+              <td>
+                <button type="button" class="btn btn-success">edit</button>
+                <button type="button" class="btn btn-danger">delete</button>
+
+              </td>
             </tr>
             
           </tbody>
@@ -89,7 +96,8 @@ export default {
 
   mounted(){
     this.$store.dispatch('fetchProducts')
-  }
+  },
+
   
   
 
@@ -106,6 +114,23 @@ export default {
   background-position: center center;
 }
 table {
-  opacity: 0.7;
+  opacity: 0.8;
 }
+.collor{
+  border-radius: 2rem;
+}
+.sort {
+  width: 6rem;
+  background-color: #f7e1bc;
+  border: 1px solid black;
+}
+.addItems {
+  background-color: #f7e1bc;
+  border: 1px solid #f7e1bc;
+  width: 6rem;
+  border-radius: 0.5em;
+}
+
+
+
 </style>
