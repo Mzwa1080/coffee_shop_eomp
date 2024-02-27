@@ -18,29 +18,7 @@
 
         </div>
 
-<nav class="navbar d-flex background-img navbar-expand-lg ">
-  <div class="container-fluid justify-content-center">
 
-    <button class="navbar-toggler collor" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon collor"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <RouterLink to="/products" class="nav-link collor" aria-current="page" >Products</RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink to="/users" class="nav-link collor" >Users</RouterLink>
-        </li>
-        
-      </ul>
-
-
-    </div>
-
-
-  </div>
-</nav>
 
         <!-- must collect cards that will display all products -->
         <!-- when selecting a products, you must router to a product page a single page of a selected product -->
