@@ -36,7 +36,51 @@ class Products{
             })
         })
     }
+ deleteProducts(req,res){
+      const qry=`DELETE FROM products ;`
+
+      db.query(qry, (err)=>{
+        if(err) throw err
+        
+        res.json({
+          status: res.statusCode,
+          msg:'Product was delete!'
+        })
+
+      })
+  }
+  deleteProduct(req,res){
+    const qry=`DELETE FROM products WHERE prodID= ? ;`
+    db.query(qry, [req.params.id], (err)=>{
+        if(err) throw err
+        res.json({
+            status: res.statusCode,
+            msg:'Product is deleted!'
+        });
+    });
 }
+async updateProduct(req, res) {
+    const qry = `
+    UPDATE products 
+    SET ?
+    WHERE prodID = ?;`;
+    db.query(qry, [req.body, req.params.id], (err, results) => {
+        if(err) {
+            console.error(err);
+            return res.status(500).json({
+                status: "error",
+                message: "An error occurred while updating the product."
+            });
+        }
+        
+        res.json({
+            status: "success",
+            msg: 'Product is updated!'
+        });
+    });
+}
+}
+
 export{
     Products
 }
