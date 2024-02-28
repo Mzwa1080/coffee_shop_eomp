@@ -38,7 +38,7 @@ const routes = [
   }
   ,
   {
-    path: '/update/:id',
+    path: '/products/update/:id',
     name: 'update',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

@@ -27,7 +27,6 @@ export default createStore({
       state.products = value
     },
     setProduct(state, value) {
-      console.log(value);
       state.product = value
     },
   },
@@ -211,17 +210,20 @@ export default createStore({
     },
     async updateProduct(context, payload) {
       try{
-        let {data} = await axios.patch(`${lifeURL}products/update/${payload.id}`)
-        if(data.msg) {
+        let {msg} = await axios.patch(`${lifeURL}products/update/${payload.id}`)
+        console.log(msg);
+        if(msg) {
+          console.log('succeffull');
           context.dispatch('fetchProducts')
           sweet({
             title: 'Products was updated',
-            text: data.msg,
+            text: msg,
             icon: "success",
             timer: 2000
           }) 
         }
       }catch(e) {
+        console.log('gets here');
         sweet({
           title: 'Error',
           text: 'An error occurred when updating a product.',

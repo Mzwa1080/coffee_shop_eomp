@@ -66,6 +66,16 @@
                 <input type="number" class="form-control" :value="product?.prodQuantity" id="exampleFormControlInput1"
                     placeholder="1">
             </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Product Description</label>
+                <input type="text" class="form-control" :value="product?.description" id="exampleFormControlInput1"
+                    placeholder="1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Image Url</label>
+                <input type="text" class="form-control" :value="product?.prodUrl" id="exampleFormControlInput1"
+                    placeholder="1">
+            </div>
 
 
 
