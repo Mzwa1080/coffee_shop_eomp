@@ -211,12 +211,12 @@ export default createStore({
     },
     async updateProduct(context, payload) {
       try{
-        let {msg} = await axios.patch(`${lifeURL}users/update/${payload.id}`)
-        if(msg) {
+        let {data} = await axios.patch(`${lifeURL}products/update/${payload.id}`)
+        if(data.msg) {
           context.dispatch('fetchProducts')
           sweet({
             title: 'Products was updated',
-            text: msg,
+            text: data.msg,
             icon: "success",
             timer: 2000
           }) 
