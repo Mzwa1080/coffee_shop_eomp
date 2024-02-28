@@ -8,7 +8,7 @@ import cors from 'cors'
 config()
 
 const app=express()
-const port = +process.env.PORT || 4007
+const port = +process.env.PORT || 4000
 
 //Middleware
 app.use((req,res,next)=>{
