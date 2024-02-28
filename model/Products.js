@@ -16,11 +16,11 @@ class Products{
         const qry = `
         select prodID,prodName,prodQuantity, productAmount,description, prodUrl
         FROM products WHERE prodID = ${req.params.id};`
-         db.query(qry, (err, results)=>{
+         db.query(qry, (err, result)=>{
             if(err) throw err
             res.json({
                 status : res.statusCode,
-                results
+                result : result[0]
             })
          })
     }
