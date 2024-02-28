@@ -51,7 +51,7 @@
                 <h1>Update your product</h1>
                 <div class="col" v-if="product" >
                     <label for="exampleFormControlInput1" class="form-label">Product Name</label>
-                    <input type="text" class="form-control" :value="product.prodName" id="exampleFormControlInput1" placeholder="Expresso">
+                    <input type="text" class="form-control" :value="product.prodName" id="exampleFormControlInput1" placeholder="">
                 </div>
                 <div class="col">
                     <label for="exampleFormControlTextarea1" class="form-label">Product Price</label>
@@ -64,7 +64,7 @@
      
 
 
-                <button class="btn btn-success" onclick="update"> UPDATE </button>
+                <button class="btn btn-success"> UPDATE </button>
             </div>
     </div>
 </template>
@@ -77,13 +77,9 @@ export default {
         product() {
             return this.$store.state.product
         },
-        update(){
-            return this.$store.state.product
-        }
     },
     mounted() {
         this.$store.dispatch('fetchProduct', this.$route.params)
-        this.$store.dispatch('updateProduct', this.$route.params)
     }
 };
 </script>
