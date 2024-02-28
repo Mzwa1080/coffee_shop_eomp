@@ -50,7 +50,7 @@ class Products{
       })
   }
   deleteProduct(req,res){
-    const qry=`DELETE FROM products WHERE prodID= ? ;`
+    const qry=`DELETE FROM products WHERE prodID=  ${req.params.id} ;`
     db.query(qry, [req.params.id], (err)=>{
         if(err) throw err
         res.json({
@@ -63,7 +63,7 @@ async updateProduct(req, res) {
     const qry = `
     UPDATE products 
     SET ?
-    WHERE prodID = ?;`;
+    WHERE prodID =  ${req.params.id};`;
     db.query(qry, [req.body, req.params.id], (err, results) => {
         if(err) {
             console.error(err);
