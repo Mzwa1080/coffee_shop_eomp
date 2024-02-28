@@ -63,8 +63,44 @@
               <td>R{{ product.productAmount }}</td>
               <td>{{ product.prodQuantity }}</td>
               <td>
-                <button type="button" class="btn btn-success">edit</button>
-                <button type="button" class="btn btn-danger" >delete</button>
+                <button type="button" class="btn btn-success"  data-bs-toggle="modal" :data-bs-target="`#${product.prodName}`+ `${product.prodID}`">
+                        update
+                        </button>
+        
+                        <!-- Modal -->
+                        <div class="modal fade"  :id="`${product.prodName}`+ `${product.prodID}`" tabindex="-1" aria-labelledby="updateDatalabel" aria-hidden="false">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5 text-black " >Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-black ">
+        
+                                        <div class="mb-3 col-11">
+                                            <label for="prodName${product.prodID}" class="form-label">{{ product.prodName}}</label>
+                                            <input type="text" class="form-control product-name text-black" :value="product.prodName" id="prodName${product.prodID}"
+                                                brand-name aria-describedby="emailHelp">
+                                        </div>
+        
+                                        <div class="mb-3 col-11">
+                                            <label for="description${product.prodID}" class="form-label">{{product.description}}</label>
+                                            <input type="text" class="form-control product-description" :value="product.description" id="description${product.prodID}"
+                                                brand-description aria-describedby="emailHelp">
+                                        </div>
+
+                                    
+                                    
+        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" onclick='' data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success " onclick='new EditTheItem(${JSON.stringify(item)}, ${JSON.stringify(i)})' save-btn>Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
               </td>
             </tr>
@@ -84,16 +120,19 @@ export default {
   name: "AdminView",
   components: { NavbarComp },
 
-
   computed : {
     products(){
       return this.$store.state.products
     },
+    update(){
+      return this.$store.state.product
+    }
 
   },
 
   mounted(){
     this.$store.dispatch('fetchProducts')
+    this.$store.dispatch('updateProduct')
   },
 
 
@@ -112,10 +151,13 @@ export default {
   background-position: center center;
 }
 table {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .collor{
   border-radius: 2rem;
+}
+.modal-dialog {
+  pointer-events: unset !important;
 }
 .sort {
   width: 6rem;

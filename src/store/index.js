@@ -188,7 +188,7 @@ export default createStore({
     },
     async fetchProduct(context, payload) {
       try{
-        let {result} = (await axios.get(`${lifeURL}product/${payload.id}`)).data
+        let {result} = (await axios.get(`${lifeURL}products/${payload.id}`)).data
         // console.log(result);
         if(result) {
           context.commit('setProduct', result)
@@ -197,7 +197,7 @@ export default createStore({
             title: 'Retrieving a single product',
             text: 'Product was not found',
             icon: "info",
-            timer: 20000
+            timer: 4000
           }) 
         }
       }catch(e) {
@@ -205,6 +205,27 @@ export default createStore({
           title: 'Error',
           text: 'A product was not found.',
           icon: "error",
+          timer: 2000
+        }) 
+      }
+    },
+    async updateProduct(context, payload) {
+      try{
+        let {msg} = await axios.patch(`${lifeURL}users/update/${payload.id}`)
+        if(msg) {
+          context.dispatch('fetchProducts')
+          sweet({
+            title: 'Products was updated',
+            text: msg,
+            icon: "success",
+            timer: 2000
+          }) 
+        }
+      }catch(e) {
+        sweet({
+          title: 'Error',
+          text: 'An error occurred when updating a product.',
+          icon: "success",
           timer: 2000
         }) 
       }
