@@ -8,7 +8,7 @@ let connection=createPool({
     user: process.env.DB_UserName,
     password: process.env.DB_UserPass,
     multipleStatements:true,
-    connectionLimit: 60
+    connectionLimit: 90
 })
 export{
 connection
