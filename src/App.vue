@@ -35,10 +35,18 @@
   color: #F7E1BC;
   background-color: #54372B;
 }
-
+.modal-backdrop {
+   position: relative;
+   z-index: -1
+}
+.modal {
+   position: relative;
+   z-index: 9999
+}
 nav {
   padding: 30px;
 }
+
 
 nav a {
   font-weight: bold;

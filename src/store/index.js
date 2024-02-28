@@ -5,7 +5,7 @@ import { useCookies } from 'vue3-cookies'
 const {cookies} = useCookies()
 import router from '@/router'
 import AuthenticateUser from '@/service/AuthenticateUser'
-const lifeURL = 'https://coffee-shop-eomp.onrender.com/'
+const lifeURL = 'https://coffee-shop-eomp-79iw.onrender.com/'
 
 export default createStore({
   state: {
