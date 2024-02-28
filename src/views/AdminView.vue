@@ -97,16 +97,12 @@ export default {
   computed: {
     products() {
       return this.$store.state.products
-    },
-    update() {
-      return this.$store.state.product
     }
 
   },
 
   mounted() {
     this.$store.dispatch('fetchProducts')
-    this.$store.dispatch('updateProduct')
   },
 
 
