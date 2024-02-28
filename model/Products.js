@@ -59,26 +59,22 @@ class Products{
         });
     });
 }
-async updateProduct(req, res) {
-    const qry = `
+  async updateProduct(req,res){
+    const qry=`
     UPDATE products 
     SET ?
-    WHERE prodID =  ${req.params.id};`;
-    db.query(qry, [req.body, req.params.id], (err, results) => {
-        if(err) {
-            console.error(err);
-            return res.status(500).json({
-                status: "error",
-                message: "An error occurred while updating the product."
-            });
-        }
-        
-        res.json({
-            status: "success",
-            msg: 'Product is updated!'
-        });
-    });
-}
+    WHERE prodID = ${req.params.id};`
+  
+    db.query(qry, [req.body], (err)=>{
+      if(err) throw err
+      
+      res.json({
+        status: res.statusCode,
+        msg:'Product is updated!'
+      })
+  
+    })
+  }
 }
 
 export{
