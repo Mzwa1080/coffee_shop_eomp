@@ -53,7 +53,7 @@ productRouter.delete('/deleteProducts',(req,res)=>{
 
 productRouter.delete('/delete/:id',(req,res)=>{
     try{
-        productRouter.deleteProduct(req,res)
+        products.deleteProduct(req,res)
 
     }catch(e){
 
@@ -66,7 +66,7 @@ productRouter.delete('/delete/:id',(req,res)=>{
 
 productRouter.patch('/update/:id', bodyParser.json(),(req,res)=>{
     try{
-        productRouter.updateProduct(req,res)
+        products.updateProduct(req,res)
     }catch(e){
         res.json({
             status: res.statusCode,
