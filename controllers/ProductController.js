@@ -49,7 +49,7 @@ productRouter.delete('/:id', (req, res) => {
     }
 });
 // Update product by ID
-productRouter.patch('/:id', (req, res) => {
+productRouter.patch('/update/:id', (req, res) => {
     try {
         products.updateProduct(req, req.body, res);
     } catch (e) {
