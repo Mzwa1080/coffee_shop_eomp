@@ -65,10 +65,7 @@
     })
   }
   updateProduct(req,res){
-    const qry=`
-    UPDATE products 
-    SET ?
-    WHERE prodID = ${req.params.id};`
+    const qry=`UPDATE products SET ? WHERE prodID=${req.params.id};`
   
     db.query(qry, [req.body], (err)=>{
       if(err) throw err
