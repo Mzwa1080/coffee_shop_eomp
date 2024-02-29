@@ -64,7 +64,7 @@
   
     })
   }
-  async updateProduct(req,res){
+  updateProduct(req,res){
     const qry=`
     UPDATE products 
     SET ?
