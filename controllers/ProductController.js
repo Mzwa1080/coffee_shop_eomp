@@ -4,51 +4,66 @@ import { products } from '../model/index.js'
 
 const productRouter=express.Router()
 
-// Fetch all products
-productRouter.get('/',  (req, res) => {
-    try {
-        products.fetchProducts(req, res);
-    } catch (e) {
+//fetch all products
+productRouter.get('/',(req,res)=>{
+    try{
+        products.fetchProducts(req,res)
+    }catch(e){
         res.json({
-            status: res.statusCode,
-            msg: 'Failed to retrieve products'
-        });
+            status:res.statusCode,
+            msg:'failed to retrieve a product'
+        })
     }
-});
-// Fetch product by ID
-productRouter.get('/:id', (req, res) => {
-    try {
-        products.fetchProduct(req, res);
-    } catch (e) {
+
+})
+productRouter.get('/:id',(req,res)=>{
+    try{
+        products.fetchProduct(req,res)
+    }catch(e){
         res.json({
-            status: res.statusCode,
-            msg: 'Failed to retrieve the product'
-        });
+            status:res.statusCode,
+            msg:'failed to retrieve a product'
+        })
     }
-});
-// Add a new product
-productRouter.post('/', (req, res) => {
-    try {
-        products.addProduct(req.body, res);
-    } catch (e) {
+
+})
+productRouter.post('/addProduct',bodyParser.json(),(req,res)=>{
+    try{
+        products.addProduct(req,res)
+    }catch(e){
         res.json({
-            status: res.statusCode,
-            msg: 'Failed to add the product'
-        });
+            status:res.statusCode,
+            msg:'failed to add product'
+        })
     }
-});
-// Delete product by ID
-productRouter.delete('/:id', (req, res) => {
-    try {
-        products.deleteProduct(req, res);
-    } catch (e) {
+})
+productRouter.delete('/deleteProducts',(req,res)=>{
+    try{
+        products.deleteProducts(req,res)
+
+    }catch(e){
+
         res.json({
-            status: res.statusCode,
-            msg: 'Failed to delete the product'
-        });
+            status:res.statusCode,
+            msg:'failed to delete a product',
+            // results:products.fetchProducts(req,res)
+        })
     }
-});
-// Update product by ID
+})
+
+productRouter.delete('/delete/:id',(req,res)=>{
+    try{
+        productRouter.deleteProduct(req,res)
+
+    }catch(e){
+
+        res.json({
+            status:res.statusCode,
+            msg:'failed to delete a user',
+        })
+    }
+})
+
 productRouter.patch('/update/:id', bodyParser.json(),(req,res)=>{
     try{
         productRouter.updateProduct(req,res)
@@ -74,13 +89,16 @@ productRouter.delete('/delete/:id',(req,res)=>{
     }
 })
 
-productRouter.patch('/update/:id', bodyParser.json(),(req,res)=>{
+productRouter.patch('/update/:id',(req,res)=>{
     try{
-        productRouter.updateProduct(req,res)
+        products.updateProduct(req,res)
+
     }catch(e){
+
         res.json({
-            status: res.statusCode,
-            msg: 'Update failed'
+            status:res.statusCode,
+            msg:'failed to update a product',
+            // results:products.fetchProducts(req,res)
         })
     }
 })
