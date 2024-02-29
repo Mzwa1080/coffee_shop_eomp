@@ -17,7 +17,7 @@
                     <h3>R{{ product.productAmount }}</h3>
             
                 </div>
-            0
+            
 
             </div>
             

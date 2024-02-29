@@ -32,9 +32,12 @@ export default createStore({
   },
   actions: {
     async register(context, payload) {
+      // console.log(payload);
+      // console.log(context);
       try{
         let {msg} = (await axios.post(`${lifeURL}users/register`, payload)).data
-        if(msg) {
+        // if(msg) {
+          console.log('msg: ' + msg);
           context.dispatch('fetchUsers')
           sweet({
             title: 'Registration',
@@ -44,7 +47,7 @@ export default createStore({
           }) 
           //  
           router.push({name: 'login'})
-        }
+        // }
       }catch(e) {
         sweet({
           title: 'Error',
@@ -209,11 +212,17 @@ export default createStore({
       }
     },
     async updateProduct(context, payload) {
+      console.log('product :' + context.state.product.prodID);
+
+      console.log('payload :' +payload.prodID);
+
+
       try{
-        let {msg} = await axios.patch(`${lifeURL}products/update/${payload.id}`)
-        console.log(msg);
-        if(msg) {
-          console.log('succeffull');
+        let {msg} = await (await axios.patch(`${lifeURL}products/update/${payload.prodID}`)).data
+       
+        console.log('message : ' + msg);
+        // if(msg) {
+          // console.log('successful');
           context.dispatch('fetchProducts')
           sweet({
             title: 'Products was updated',
@@ -221,8 +230,9 @@ export default createStore({
             icon: "success",
             timer: 2000
           }) 
-        }
+        // }
       }catch(e) {
+
         console.log('gets here');
         sweet({
           title: 'Error',

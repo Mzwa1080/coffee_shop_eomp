@@ -12,9 +12,11 @@
 
         </div>
         <div class="col">
+          <RouterLink to="/users/register">
           <button type="button" class="btn addItems">
-            <span class="material-symbols-outlined">add</span>
+            add
           </button>
+          </RouterLink>
 
         </div>
 

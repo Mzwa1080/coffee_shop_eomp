@@ -13,12 +13,15 @@
           <button type="button" class="btn btn-submit sort">Sort</button>
         </div>
         <div class="col">
-          <input
-            type="text"
-            style="height: 40px"
-            placeholder="search "
-            class="search"
-          />
+   
+
+          <RouterLink to="/register" class="  nav-link  search">
+            <button>
+              Add
+
+            </button>
+          </RouterLink>
+
         </div>
 
         <nav class="navbar d-flex background-img navbar-expand-lg">
