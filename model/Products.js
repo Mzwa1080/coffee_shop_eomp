@@ -2,26 +2,26 @@
  class Products{
     fetchProducts(req,res){
         const qry =`
-        SELECT prodID,prodName,prodQuantity, productAmount,userID
+        select prodID,prodName,prodQuantity, productAmount,description, prodUrl
         FROM products;  `
         db.query(qry, (err, results) => {
             if (err) throw err;
             res.json({
               status: res.statusCode,
-              results,
+              results
             });
           }); 
     }
     fetchProduct(req,res){
         const qry =`
-        SELECT prodID,prodName,prodQuantity, productAmount,userID
-        FROM products WHERE prodID = ${req.params.id}
+        select prodID,prodName,prodQuantity, productAmount,description, prodUrl
+        FROM products WHERE prodID=${req.params.id};
         `
         db.query(qry, (err, result) => {
             if (err) throw err;
             res.json({
               status: res.statusCode,
-              result : result[0],
+              result : result[0]
             });
           }); 
     }
