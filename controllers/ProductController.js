@@ -49,16 +49,16 @@ productRouter.delete('/:id', (req, res) => {
     }
 });
 // Update product by ID
-productRouter.patch('/update/:id', (req, res) => {
-    try {
-        products.updateProduct(req, req.body, res);
-    } catch (e) {
+productRouter.patch('/update/:id', bodyParser.json(),(req,res)=>{
+    try{
+        productRouter.updateProduct(req,res)
+    }catch(e){
         res.json({
             status: res.statusCode,
-            msg: 'Failed to update the product'
-        });
+            msg: 'Update failed'
+        })
     }
-});
+})
 
 productRouter.delete('/delete/:id',(req,res)=>{
     try{
