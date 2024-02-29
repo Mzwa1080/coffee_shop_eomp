@@ -70,7 +70,7 @@ productRouter.patch('/update/:id', bodyParser.json(),(req,res)=>{
     }catch(e){
         res.json({
             status: res.statusCode,
-            msg: 'Update failed'
+            msg: e.message
         })
     }
 })
