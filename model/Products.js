@@ -50,20 +50,21 @@
 
       })
   }
-  deleteProduct(req,res){
-    const qry=`DELETE FROM products WHERE prodID=${req.params.id} ;`
-    // const user = req.body
-  
-    db.query(qry, (err)=>{
-  
-      if(err) throw err
+deleteProduct(req, res) {
+  const qry = `DELETE FROM products WHERE prodID=${db.escape(req.params.id)};`;
+
+  db.query(qry, (err) => {
+    if (err) {
+      throw err;
+    } else {
       res.json({
         status: res.statusCode,
-        msg:'Product is deleted!'
-      })
-  
-    })
-  }
+        msg: 'Product is deleted!',
+      });
+    }
+  });
+}
+
   updateProduct(req,res){
     const qry=`UPDATE products SET ? WHERE prodID=${req.params.id};`
   
