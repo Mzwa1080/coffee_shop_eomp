@@ -82,7 +82,7 @@
                   <td>{{ userss.emailAdd }}</td>
                   <td>{{ userss.userRole }}</td>
                   <td>
-                    <RouterLink :to="{name : 'update', params:{id:userss.userID}    }">
+                    <RouterLink :to="{name : 'userUpdate', params:{id:userss.userID}    }">
                       <button type="button" class="btn btn-success">Edit</button>
                     </RouterLink>
                     <button type="button" class="btn btn-danger" @click="deleteUser(user.userID)">Delete</button>
@@ -122,14 +122,31 @@ export default {
           this.$store.dispatch("deleteUser", prodID);
       },
 
-    editUser(userId) {
-      this.$router.push({ name: 'editUser', params: { id: userId } });
-    },
+      updatingProduct() {
+    const updatedProduct = {
+        prodID: this.product.prodID,
+        prodName: this.productName,
+        productAmount: this.productPrice,
+        prodQuantity: this.productQuantity,
+        description: this.productDescription,
+        prodUrl: this.imageUrl
+    };
+    this.$store.dispatch('updateProduct', updatedProduct)
+        .then(() => {
+            this.$router.push('/admin');
+        })
+        .catch((error) => {
+            console.error('Error updating product:', error);
+            // Handle error, show error message, etc.
+        });
+}
+
   },
 
 
   mounted() {
     this.$store.dispatch("fetchUsers")
+    
   },
 };
 </script>

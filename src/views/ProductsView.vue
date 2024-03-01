@@ -36,7 +36,7 @@
                 Amount: R{{ product.productAmount }}
               </p>
               <router-link
-                :to="{ name: 'product', params: { id: product.prodID } }"
+                :to="{ name: 'productView', params: { id: product.prodID } }"
                 >View More</router-link
               >
             </template>

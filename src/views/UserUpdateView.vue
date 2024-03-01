@@ -59,7 +59,7 @@
           userRole: this.userRole,
         };
         this.$store.dispatch('updateUser', updatedUser);
-        this.$router.push('/users');
+        // this.$router.push('/users');
       },
     },
     mounted() {
