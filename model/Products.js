@@ -50,7 +50,7 @@
 
       })
   }
-function deleteProduct(req, res) {
+deleteProduct(req, res) {
   const qry = `DELETE FROM products WHERE prodID=${db.escape(req.params.id)};`;
 
   db.query(qry, (err) => {
