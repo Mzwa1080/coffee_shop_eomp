@@ -212,13 +212,10 @@ export default createStore({
       }
     },
     async updateProduct(context, payload) {
-      console.log('product :' + context.state.product.prodID);
-
       console.log('payload :' +payload.prodID);
 
-
       try{
-        let {msg} = await (await axios.patch(`${lifeURL}products/update/${payload.prodID}`)).data
+        let {msg} = await (await axios.patch(`${lifeURL}products/update/${payload.prodID}`, payload)).data
        
         console.log('message : ' + msg);
         // if(msg) {

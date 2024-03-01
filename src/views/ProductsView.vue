@@ -18,11 +18,6 @@
 
         </div>
 
-
-
-        <!-- must collect cards that will display all products -->
-        <!-- when selecting a products, you must router to a product page a single page of a selected product -->
-
         <div class="row d-flex justify-content-center" v-if="products">
           <Card class="card m-2 " style="width: 16rem;" v-for="product in products"
             :key="product.products_id"

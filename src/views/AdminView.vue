@@ -33,7 +33,7 @@
                   <RouterLink to="#" class="  nav-link " aria-current="page">Products</RouterLink>
                 </li>
                 <li class="nav-item">
-                  <RouterLink to="/users" class="  nav-link ">Users</RouterLink>
+                  <RouterLink to="/users/" class="  nav-link ">Users</RouterLink>
                 </li>
 
               </ul>
