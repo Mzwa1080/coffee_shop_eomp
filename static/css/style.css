@@ -1,21 +1,28 @@
-*,
-::before,
-::after{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+body {
+    background-color: #f8f9fa; /* Light grey background */
+    font-family: Arial, sans-serif;
 }
-
-
-
-
-body{
-    text-align: center;
-   
+.container {
+    padding-top: 2rem;
 }
-table{
-    border: thick;
-    align-items: center;
-    justify-content: center;
-    border: dotted;
+h1 {
+    color: #007bff; /* Bootstrap primary color */
+    margin-bottom: 2rem;
+}
+table {
+    background-color: #fff; /* White background for the table */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Slight shadow for depth */
+}
+th {
+    background-color: #007bff; /* Bootstrap primary color for header background */
+    color: #fff; /* White text color for headers */
+}
+th, td {
+    padding: 0.75rem; /* Adequate padding for table cells */
+    border: 1px solid #dee2e6; /* Light grey border for cells */
+}
+.endpoint-header {
+    background-color: #6c757d; /* Darker grey for endpoint headers */
+    color: #fff; /* White text color */
+    font-size: 1
 }
