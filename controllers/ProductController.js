@@ -64,7 +64,7 @@ productRouter.delete('/delete/:id',(req,res)=>{
     }
 })
 
-productRouter.patch('/update/:id', bodyParser.json(),(req,res)=>{
+productRouter.put('/update/:id', bodyParser.json(),(req,res)=>{
     try{
         products.updateProduct(req,res)
     }catch(e){
