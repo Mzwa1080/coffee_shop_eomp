@@ -67,14 +67,12 @@
               <td>R{{ product.productAmount }}</td>
               <td>{{ product.prodQuantity }}</td>
               <td>
-                <!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" :data-bs-target="`#${product.prodName}` + `${product.prodID}`">
-                  update
-                </button> -->
+
 
                 <router-link :to="{name : 'update', params:{id:product.prodID}    }">
-   
                   <button type="button" class="btn btn-success">update  </button>
                 </router-link>
+
                 <button class="btn btn-danger" @click="deletingProduct(product.prodID)">Delete</button>
 
               </td>

@@ -53,7 +53,6 @@
           prodUrl: this.prodUrl
         };
   
-        // Dispatch store action to add product
         this.$store.dispatch('addProduct', productData);
       }
     }

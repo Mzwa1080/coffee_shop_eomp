@@ -82,9 +82,11 @@
                   <td>{{ userss.emailAdd }}</td>
                   <td>{{ userss.userRole }}</td>
                   <td>
-                <button type="button" class="btn btn-success">edit</button>
-                <button type="button" class="btn btn-danger" onclick="deleteUser">delete</button>
-
+                    <RouterLink :to="{name : 'update', params:{id:userss.userID}    }">
+                      <button type="button" class="btn btn-success">Edit</button>
+                    </RouterLink>
+                    <button type="button" class="btn btn-danger" @click="deleteUser(user.userID)">Delete</button>
+                  
               </td>
                 </tr>
               </tbody>
@@ -113,12 +115,17 @@ export default {
     users() {
       return this.$store.state.users;
     },
-    deleteUser(){
-        return this.$store.state.user;
-    }
 
   },
-  
+  methods:{
+    deleteUser(prodID) {
+          this.$store.dispatch("deleteUser", prodID);
+      },
+
+    editUser(userId) {
+      this.$router.push({ name: 'editUser', params: { id: userId } });
+    },
+  },
 
 
   mounted() {

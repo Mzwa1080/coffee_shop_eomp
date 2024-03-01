@@ -104,7 +104,7 @@ export default createStore({
     },
     async updateUser(context, payload) {
       try{
-        let {msg} = await axios.patch(`${lifeURL}users/update/${payload.id}`)
+        let {msg} = await axios.patch(`${lifeURL}users/update/${payload.userID}`, payload)
         if(msg) {
           context.dispatch('fetchUsers')
           sweet({
@@ -125,7 +125,7 @@ export default createStore({
     },
     async deleteUser(context, payload) {
       try{
-        let {msg} = await axios.delete(`${lifeURL}users/${payload.id}`)
+        let {msg} = await axios.delete(`${lifeURL}users/${payload.prodID}`, payload)
         if(msg) {
           context.dispatch('fetchUsers')
           sweet({
@@ -144,6 +144,8 @@ export default createStore({
         }) 
       }
     },
+
+    // 
     async login(context, payload) {
       try{
        const {msg, token, result} = (await axios.post(`${lifeURL}users/login`, payload)).data 
