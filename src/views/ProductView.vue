@@ -35,6 +35,7 @@
 <script>
 import Spinner from '@/components/Spinner.vue';
 export default {
+    name : 'ProductView',
     components: {
         Spinner
     },

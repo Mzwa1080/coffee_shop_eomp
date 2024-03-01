@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ProductView from '../views/ProductView.vue'
 
 const routes = [
   {
@@ -26,7 +27,7 @@ const routes = [
   {
     path: '/product/:id',
     name: 'product',
-    component: () => import( '../views/ProductView.vue')
+    component: ProductView
   },
   {
     path: '/admin',
@@ -54,6 +55,15 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/ContactView.vue')
   } ,
+  
+ {
+   path: '/users',
+   name: 'users',
+   // route level code-splitting
+   // this generates a separate chunk (about.[hash].js) for this route
+   // which is lazy-loaded when the route is visited.
+   component: () => import(/* webpackChunkName: "about" */ '../views/UsersVIew.vue')
+ } ,
   {
     path: '/login',
     name: 'login',
@@ -62,16 +72,18 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/LoginView.vue')
   },
+
   {
-    path: '/users/',
-    name: 'users',
+    path: '/products/addProduct',
+    name: 'product',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/UsersVIew.vue')
-  }  ,
+    component: () => import(/* webpackChunkName: "about" */ '../views/RegProductView.vue')
+  } 
+   ,
   {
-    path: '/users/register',
+    path: '/register',
     name: 'register',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

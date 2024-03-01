@@ -39,16 +39,16 @@ export default {
     name: 'AddUsersComp',
     data() {
         return {
-            firstName: '',
-            lastName: '',
+            firstName: null,
+            lastName: null,
             age: null,
-            email: '',
-            password: '',
-            role: ''
+            email: null,
+            password: null,
+            role: null
         };
     },
     methods: {
-        async addUser() {
+         addUser() {
             const userData = {
                 firstName: this.firstName,
                 lastName: this.lastName,
@@ -57,19 +57,8 @@ export default {
                 userPwd: this.password,
                 userRole: this.role
             };
-            try {
-                await this.$store.dispatch('register', userData);
-                // Clear input fields after successful registration if needed
-                this.firstName = '';
-                this.lastName = '';
-                this.age = null;
-                this.email = '';
-                this.password = '';
-                this.role = '';
-            } catch (error) {
-                console.error('Error while registering user:', error);
-                // Handle error, show message to user, etc.
-            }
+                 this.$store.dispatch('register', userData);
+
         }
     }
 }

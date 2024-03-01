@@ -29,6 +29,14 @@ export default createStore({
     setProduct(state, value) {
       state.product = value
     },
+    sortProductsByPrice(state) {
+      state.products.sort((a, b) => a.productAmount - b.productAmount);
+    },
+  
+    // Mutation to sort products by name
+    sortProductsByName(state) {
+      state.products.sort((a, b) => a.prodName.localeCompare(b.prodName));
+    },
   },
   actions: {
     async register(context, payload) {
@@ -238,7 +246,62 @@ export default createStore({
           timer: 2000
         }) 
       }
-    }
+    },
+    async addProduct(context, payload) {
+      try {
+        const msg = (await axios.post(`${lifeURL}products/addProduct`, payload)).data;
+        // const { msg } = response.data;
+        
+        if (msg) {
+          context.dispatch('fetchProducts'); // Fetch updated list of products after adding
+          sweet({
+            title: 'Product Added',
+            text: msg,
+            icon: 'success',
+            timer: 2000
+          });
+        }
+      } catch (error) {
+        sweet({
+          title: 'Error',
+          text: 'An error occurred when adding a product.',
+          icon: 'error',
+          timer: 2000
+        });
+      }
+    },
+    async deleteProduct(context, payload) {
+      console.log(payload);
+      try {
+        const response = await axios.delete(`${lifeURL}products/delete/${payload}`, payload);
+        const msg = response.data;
+        
+        if (msg) {
+          context.dispatch('fetchProduct'); // Fetch updated list of products after deletion
+          sweet({
+            title: 'Product Deleted',
+            text: msg,
+            icon: 'success',
+            timer: 2000
+          });
+        }
+      } catch (error) {
+        sweet({
+          title: 'Error',
+          text: 'An error occurred when deleting the product.',
+          icon: 'error',
+          timer: 2000
+        });
+      }
+    },
+    sortProductsByPrice(context) {
+      context.commit('sortProductsByPrice');
+    },
+  
+    sortProductsByName(context) {
+      context.commit('sortProductsByName');
+    },
+    
   },
   modules: {
   }

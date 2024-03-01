@@ -8,17 +8,18 @@
       <div class="row d-flex justify-content-evenly">
         <!-- must have sort and sear button displayed flex, -->
         <div class="col">
-          <button type="button" class="btn btn-submit sort ">Sort</button>
+          <button type="button" class="btn btn-submit sort " @click="sortByName">Sort</button>
 
         </div>
         <div class="col">
-          <RouterLink to="/users/register">
+          <RouterLink to="/products/addProduct">
           <button type="button" class="btn addItems">
             add
           </button>
           </RouterLink>
 
         </div>
+
 
         <nav class="navbar d-flex background-img bg navbar-expand-lg ">
           <div class="container-fluid  justify-content-center">
@@ -33,7 +34,7 @@
                   <RouterLink to="#" class="  nav-link " aria-current="page">Products</RouterLink>
                 </li>
                 <li class="nav-item">
-                  <RouterLink to="/users/" class="  nav-link ">Users</RouterLink>
+                  <RouterLink to="/users" class="  nav-link ">Users</RouterLink>
                 </li>
 
               </ul>
@@ -74,9 +75,7 @@
    
                   <button type="button" class="btn btn-success">update  </button>
                 </router-link>
-                
-
-
+                <button class="btn btn-danger" @click="deletingProduct(product.prodID)">Delete</button>
 
               </td>
             </tr>
@@ -99,8 +98,26 @@ export default {
   computed: {
     products() {
       return this.$store.state.products
+    },
+    product(){
+      return this.$store.state.product
     }
 
+
+  },
+
+  methods: {
+    deletingProduct(productId) {
+      this.$store.dispatch('deleteProduct', productId);
+    },
+
+    sortByPrice() {
+      this.$store.dispatch('sortProductsByPrice');
+    },
+
+    sortByName() {
+      this.$store.dispatch('sortProductsByName');
+    }
   },
 
   mounted() {
