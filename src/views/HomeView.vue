@@ -65,7 +65,7 @@ h1{
   padding-top: 10rem;
 }
 .background{
-  background-image: url('https://i.ibb.co/Jm86SfK/fahmi-fakhrudin-nzyz-AUsb-V0-M-unsplash.jpg" alt="fahmi-fakhrudin-nzyz-AUsb-V0-M-unsplash');
+  background-image: url('https://i.ibb.co/d0WGJHx/fahmi-fakhrudin-nzyz-AUsb-V0-M-unsplash.png');
   height: 800px;
   background-size: cover;
   background-blend-mode: soft-light;
