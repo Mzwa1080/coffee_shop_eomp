@@ -113,7 +113,7 @@ export default {
 
 <style scoped>
 .background {
-  background-image: url('https://i.ibb.co/rxm0PNY/nolan-issac-It0-DCa-CBr40-unsplash.jpg" alt="nolan-issac-It0-DCa-CBr40-unsplash');
+  background-image: url('../assets/img/nolan-issac-It0DCaCBr40-unsplash.png');
   height: 800px;
   background-size: cover;
   /* opacity: .99; */

@@ -93,7 +93,7 @@ export default {
   border: 1px solid #f7e1bc;
 }
 .background {
-  background-image: url('../assets/img/nathan-dumlao-Y3AqmbmtLQI-unsplash.png');
+  background-image: url('../assets/img/nathan-dumlao-Y3AqmbmtLQI-unsplash.png') ;
   background-size: cover;
   background-blend-mode: soft-light;
   background-position: center center;
