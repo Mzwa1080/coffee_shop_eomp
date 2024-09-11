@@ -42,7 +42,7 @@
         
           <Card class="card p-4 m-4" style="width: 18rem;" >
                 <template #cardImgTop>
-                  <img class=" card-img-top" src="https://i.ibb.co/FWVvhNt/Screenshot-2024-02-20-134757.png" alt="Screenshot-2024-02-20-134757" >
+                  <img class=" card-img-top" src="../assets/img/image 1.png" alt="Screenshot-2024-02-20-134757" >
                 
                 </template>
 
@@ -58,7 +58,7 @@
 
         <Card class="card p-4 m-4 " style="width: 18rem;" >
                 <template #cardImgTop>
-                  <img class=" card-img-top" src="https://i.ibb.co/8xpdSXM/Screenshot-2024-02-20-135308.png"  >
+                  <img class=" card-img-top" src="../assets/img/image 2.png"  >
                 
                 </template>
 
@@ -94,7 +94,7 @@ export default {
 
 <style scoped>
 .background {
-  background-image: url('https://i.ibb.co/qjXx69X/nathan-dumlao-6-Vh-PY27jdps-unsplash.jpg" alt="nathan-dumlao-6-Vh-PY27jdps-unsplash');
+  background-image: url('../assets/img/nathan-dumlao-6VhPY27jdps-unsplash\ \(1\).png');
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
